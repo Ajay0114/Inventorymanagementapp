@@ -1,6 +1,13 @@
 # Use OpenJDK 17 as the base image
 FROM openjdk:17-jdk-alpine
 
+
+# Install necessary dependencies including AWS CLI
+RUN apt-get update && \
+    apt-get install -y python3-pip && \
+    pip3 install awscli --upgrade && \
+    apt-get clean
+
 # Set the working directory inside the container
 WORKDIR /app
 
