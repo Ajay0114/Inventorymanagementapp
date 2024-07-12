@@ -55,31 +55,31 @@ jobs:
           AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 
           # Manufacturer Microservice
-          cd Backend-Java-Spring/Manfacturer
+          cd ./Backend-Java-Spring/Manfacturer
           docker build -t manufacturer-backend .
           docker tag manufacturer-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/manufacturer-backend:latest
           cd ../../..
 
           # ShopClues Microservice
-          cd Backend-Java-Spring/ShopClues
+          cd ./Backend-Java-Spring/ShopClues
           docker build -t shopclues-backend .
           docker tag shopclues-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopclues-backend:latest
           cd ../../..
 
           # ShopWise Microservice
-          cd Backend-Java-Spring/Shopwise
+          cd ./Backend-Java-Spring/Shopwise
           docker build -t shopwise-backend .
           docker tag shopwise-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopwise-backend:latest
           cd ../../..
 
           # ShopClues Frontend
-          cd Frontend-Angular/ShopClues
+          cd ./Frontend-Angular/ShopClues
           docker build -t shopclues-frontend .
           docker tag shopclues-frontend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopclues-frontend:latest
           cd ../../..
 
           # ShopWise Frontend
-          cd Frontend-Angular/ShopWise
+          cd ./Frontend-Angular/ShopWise
           docker build -t shopwise-frontend .
           docker tag shopwise-frontend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopwise-frontend:latest
           cd ../../..
