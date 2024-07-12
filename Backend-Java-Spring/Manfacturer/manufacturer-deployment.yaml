@@ -25,15 +25,15 @@ spec:
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
-                  name: aws-secret
+                  name: aws-secrets
                   key: access_key_id
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: aws-secret
+                  name: aws-secrets
                   key: secret_access_key
             - name: AWS_SESSION_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: aws-secret
+                  name: aws-secrets
                   key: session_token
