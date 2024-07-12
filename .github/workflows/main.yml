@@ -64,37 +64,37 @@ jobs:
           # Manufacturer Microservice
           cd Backend-Java-Spring/Manfacturer
           docker build -t manufacturer-backend .
-          docker tag manufacturer-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/manufacturer-backend:latest
+          docker tag manufacturer-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:manufacturer-backend-latest
 
           # ShopClues Microservice
           cd ../ShopClues
           docker build -t shopclues-backend .
-          docker tag shopclues-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopclues-backend:latest
+          docker tag shopclues-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopclues-backend-latest
 
           # ShopWise Microservice
           cd ../Shopwise
           docker build -t shopwise-backend .
-          docker tag shopwise-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopwise-backend:latest
+          docker tag shopwise-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopwise-backend-latest
 
           # ShopClues Frontend
           cd ../../Frontend-Angular/ShopClues
           docker build -t shopclues-frontend .
-          docker tag shopclues-frontend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopclues-frontend:latest
+          docker tag shopclues-frontend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopclues-frontend-latest
 
           # ShopWise Frontend
           cd ../ShopWise
           docker build -t shopwise-frontend .
-          docker tag shopwise-frontend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopwise-frontend:latest
+          docker tag shopwise-frontend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopwise-frontend-latest
 
           # Login to ECR
           aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
 
           # Push Docker Images
-          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/manufacturer-backend:latest
-          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopclues-backend:latest
-          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopwise-backend:latest
-          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopclues-frontend:latest
-          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopwise-frontend:latest
+          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:manufacturer-backend-latest
+          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopclues-backend-latest
+          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopwise-backend-latest
+          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopclues-frontend-latest
+          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopwise-frontend-latest
 
       - name: Deploy to EKS Cluster
         env:
