@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-shopwise-app
+  labels:
+    app: backend-shopwise-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-shopwise-app
+  template:
+    metadata:
+      labels:
+        app: backend-shopwise-app
+    spec:
+      containers:
+        - name: backend-shopwise-app
+          image: 905418476815.dkr.ecr.ap-south-1.amazonaws.com/mytest:backendshopwise
+          ports:
+            - containerPort: 9091

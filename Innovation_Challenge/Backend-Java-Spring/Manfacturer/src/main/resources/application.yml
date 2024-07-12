@@ -1,0 +1,8 @@
+server:
+  port: 9090
+Scheduler:
+  cron: 0 0/2 0 * * *
+ecommerce:
+  urls:
+    shopClues: http://a19fb20422471489c92eafc1d727b572-1793630855.ap-south-1.elb.amazonaws.com:8080/products #backendloadbalancers
+    shopWise: http://aa6c4034da1fa418488cd1923d527ffa-411554426.ap-south-1.elb.amazonaws.com:9091/products
