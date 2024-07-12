@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: backend-shopclues-app
-          image: 905418476815.dkr.ecr.ap-south-1.amazonaws.com/shopclues-backend:latest
+          image: 905418476815.dkr.ecr.ap-south-1.amazonaws.com/mytest:shopclues-backend-latest
           ports:
             - containerPort: 8080

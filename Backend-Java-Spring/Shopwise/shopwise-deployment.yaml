@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: backend-shopwise-app
-          image: 905418476815.dkr.ecr.ap-south-1.amazonaws.com/shopwise-backend:latest
+          image: 905418476815.dkr.ecr.ap-south-1.amazonaws.com/mytest:shopwise-backend-latest
           ports:
             - containerPort: 9091
