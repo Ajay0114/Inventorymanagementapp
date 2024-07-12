@@ -105,22 +105,27 @@ jobs:
         run: |
           aws eks update-kubeconfig --name my-eks-cluster --region $AWS_REGION
 
-          # Apply Kubernetes deployment and service files for Manufacturer Microservice
-          kubectl apply -f k8s/manufacturer-deployment.yaml
-          kubectl apply -f k8s/service.yaml
+           # Apply Kubernetes deployment and service files for Manufacturer Microservice
+          cd Backend-Java-Spring/Manufacturer
+          kubectl apply -f manufacturer-deployment.yaml
+          kubectl apply -f service.yaml
 
           # Apply Kubernetes deployment and service files for ShopClues Microservice
-          kubectl apply -f k8s/shopclues-deployment.yaml
-          kubectl apply -f k8s/service.yaml
+          cd ../ShopClues
+          kubectl apply -f shopclues-deployment.yaml
+          kubectl apply -f service.yaml
 
           # Apply Kubernetes deployment and service files for ShopWise Microservice
-          kubectl apply -f k8s/shopwise-deployment.yaml
-          kubectl apply -f k8s/service.yaml
+          cd ../ShopWise
+          kubectl apply -f shopwise-deployment.yaml
+          kubectl apply -f service.yaml
 
           # Apply Kubernetes deployment and service files for ShopClues Frontend
-          kubectl apply -f k8s/shopclues-frontend-deployment.yaml
-          kubectl apply -f k8s/service.yaml
+          cd ../../Frontend-Angular/ShopClues
+          kubectl apply -f shopclues-frontend-deployment.yaml
+          kubectl apply -f service.yaml
 
           # Apply Kubernetes deployment and service files for ShopWise Frontend
-          kubectl apply -f k8s/shopwise-frontend-deployment.yaml
-          kubectl apply -f k8s/service.yaml
+          cd ../ShopWise
+          kubectl apply -f shopwise-frontend-deployment.yaml
+          kubectl apply -f service.yaml
