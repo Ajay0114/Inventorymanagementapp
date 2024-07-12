@@ -58,7 +58,6 @@ jobs:
           cd ./Backend-Java-Spring/Manfacturer
           docker build -t manufacturer-backend .
           docker tag manufacturer-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/manufacturer-backend:latest
-          cd ../../..
 
           # ShopClues Microservice
           cd ./Backend-Java-Spring/ShopClues
