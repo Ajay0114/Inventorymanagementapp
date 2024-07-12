@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Manufacturer Microservice
         run: |
-          cd Backend-Java-Spring/Manufacturer
+          cd Backend-Java-Spring/Manfacturer
           ./mvnw clean package
 
       - name: Build ShopClues Microservice
