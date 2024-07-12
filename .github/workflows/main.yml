@@ -25,7 +25,7 @@ jobs:
           ls -la Backend-Java-Spring
           ls -la Frontend-Angular
 
-      - name: Build Manufacturer Microservice
+      - name: Build Manfacturer Microservice
         run: |
           cd Backend-Java-Spring/Manfacturer
           ./mvnw clean package
@@ -35,9 +35,9 @@ jobs:
           cd Backend-Java-Spring/ShopClues
           ./mvnw clean package
 
-      - name: Build ShopWise Microservice
+      - name: Build Shopwise Microservice
         run: |
-          cd Backend-Java-Spring/ShopWise
+          cd Backend-Java-Spring/Shopwise
           ./mvnw clean package
 
       - name: Build ShopClues Frontend Application
@@ -62,7 +62,7 @@ jobs:
           AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 
           # Manufacturer Microservice
-          cd Backend-Java-Spring/Manufacturer
+          cd Backend-Java-Spring/Manfacturer
           docker build -t manufacturer-backend .
           docker tag manufacturer-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/manufacturer-backend:latest
 
@@ -72,7 +72,7 @@ jobs:
           docker tag shopclues-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopclues-backend:latest
 
           # ShopWise Microservice
-          cd ../ShopWise
+          cd ../Shopwise
           docker build -t shopwise-backend .
           docker tag shopwise-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/shopwise-backend:latest
 
