@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: shopwise-app
+  name: shopclues-app
   labels:
-    app: shopwise-app
+    app: shopclues-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: shopwise-app
+      app: shopclues-app
   template:
     metadata:
       labels:
-        app: shopwise-app
+        app: shopclues-app
     spec:
       containers:
-        - name: shopwise-app
-          image: 905418476815.dkr.ecr.ap-south-1.amazonaws.com/mytest:frontendshopwise
+        - name: shopclues-app
+          image: 905418476815.dkr.ecr.ap-south-1.amazonaws.com/shopclues-frontend:latest
           ports:
             - containerPort: 80
