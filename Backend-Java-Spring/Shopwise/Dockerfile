@@ -3,10 +3,11 @@ FROM openjdk:17-jdk-alpine
 
 
 # Install necessary dependencies including AWS CLI
-RUN apt-get update && \
-    apt-get install -y python3-pip && \
-    pip3 install awscli --upgrade && \
-    apt-get clean
+RUN apk update && \
+    apk add --no-cache python3 py3-pip && \
+    pip3 install --upgrade pip awscli && \
+    apk del py-pip && \
+    rm -rf /var/cache/apk/*
 
 # Set the working directory inside the container
 WORKDIR /app
