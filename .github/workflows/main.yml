@@ -106,7 +106,7 @@ jobs:
           aws eks update-kubeconfig --name my-eks-cluster --region $AWS_REGION
 
            # Apply Kubernetes deployment and service files for Manufacturer Microservice
-          cd Backend-Java-Spring/Manufacturer
+          cd Backend-Java-Spring/Manfacturer
           kubectl apply -f manufacturer-deployment.yaml
           kubectl apply -f service.yaml
 
@@ -116,7 +116,7 @@ jobs:
           kubectl apply -f service.yaml
 
           # Apply Kubernetes deployment and service files for ShopWise Microservice
-          cd ../ShopWise
+          cd ../Shopwise
           kubectl apply -f shopwise-deployment.yaml
           kubectl apply -f service.yaml
 
