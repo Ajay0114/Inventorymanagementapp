@@ -14,11 +14,11 @@ public class CorsConfig {
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);
-		config.addAllowedOrigin("http://a0809c7daa17046819dba17c1a2a0f29-1396709449.ap-south-1.elb.amazonaws.com/"); // frontendapploadbalancer
-		config.addAllowedOrigin("http://ad4e6477f0b3047168889639e638984d-1304587705.ap-south-1.elb.amazonaws.com:9090"); // manfacturer
-																															// app
-																															// load
-																															// balancer
+		config.addAllowedOrigin("http://a6641cda68db548f88fbd196daf144c6-1534474613.ap-south-1.elb.amazonaws.com/"); // frontendapploadbalancer
+		config.addAllowedOrigin("http://a05df81c6e26842219a1cc30bbb95ede-660146148.ap-south-1.elb.amazonaws.com:9090"); // manfacturer
+																														// app
+																														// load
+																														// balancer
 		config.addAllowedMethod("*");
 		config.addAllowedHeader("*");
 
