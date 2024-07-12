@@ -1,0 +1,57 @@
+# name: CI/CD Pipeline
+
+# on:
+#   push:
+#     branches:
+#       - main # Adjust branch as per your setup
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
+
+#       - name: Set up JDK 17
+#         uses: actions/setup-java@v2
+#         with:
+#           java-version: "17"
+
+#       - name: Build Spring Boot Application
+#         run: |
+#           cd Backend-Java-Spring
+#           ./mvnw clean package  # Adjust Maven command as per your project setup
+
+#       - name: Build Angular Application
+#         run: |
+#           cd ../Frontend-Angular
+#           npm install
+#           npm run build  # Adjust npm commands as per your project setup
+
+#       - name: Build Docker Images and Push to ECR
+#         env:
+#           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           AWS_REGION: ap-south-1
+#         run: |
+#           cd ..
+#           echo $AWS_ACCESS_KEY_ID
+#           echo $AWS_SECRET_ACCESS_KEY
+#           echo $AWS_REGION
+#           # Build and push Docker images to ECR
+#           docker build -t myapp-backend Backend-Java-Spring/
+#           docker build -t myapp-frontend Frontend-Angular/
+#           docker tag myapp-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myapp-backend:latest
+#           docker tag myapp-frontend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myapp-frontend:latest
+#           docker login -u AWS -p $AWS_SECRET_ACCESS_KEY https://$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+#           docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myapp-backend:latest
+#           docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/myapp-frontend:latest
+
+#       - name: Deploy to EKS Cluster
+#         env:
+#           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           AWS_REGION: ap-south-1
+#         run: |
+#           aws eks update-kubeconfig --name my-eks-cluster --region $AWS_REGION
+#           kubectl apply -f deployment.yaml  # Adjust deployment and service file names as per your project setup
