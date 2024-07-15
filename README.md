@@ -61,9 +61,12 @@
 
 8.  **Retrieve Load Balancer DNS and Update Application Files**
     Retrieve the load balancer DNS of each application's service:
-        ```bash
-        kubectl get services : Retrieve all the deployed service
-        ```
+
+    ```bash
+       kubectl get services
+
+       Retrieve all the deployed service
+    ```
 
 Update your application files (deployment.yaml, config.yaml, etc.) with the retrieved load balancer DNS.
 
