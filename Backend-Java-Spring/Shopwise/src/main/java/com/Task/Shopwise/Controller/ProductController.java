@@ -19,7 +19,7 @@ import com.Task.Shopwise.Entity.Products;
 import com.Task.Shopwise.Repository.ProductRepository;
 
 @RestController
-@CrossOrigin(origins = "http://a6641cda68db548f88fbd196daf144c6-1534474613.ap-south-1.elb.amazonaws.com") // frontendapploadbalacer
+@CrossOrigin(origins = "http://a71faa344a6bb4582a419d323f9d429d-780329519.ap-south-1.elb.amazonaws.com") // frontendapploadbalacer
 @RequestMapping("/products")
 public class ProductController {
 

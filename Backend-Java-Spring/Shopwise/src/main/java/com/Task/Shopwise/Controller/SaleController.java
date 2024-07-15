@@ -15,7 +15,7 @@ import com.Task.Shopwise.Service.ProductService;
 
 @RestController
 @RequestMapping("/sales")
-@CrossOrigin(origins = "a6641cda68db548f88fbd196daf144c6-1534474613.ap-south-1.elb.amazonaws.com") // frontendapploadbalacer
+@CrossOrigin(origins = "a71faa344a6bb4582a419d323f9d429d-780329519.ap-south-1.elb.amazonaws.com") // frontendapploadbalacer
 public class SaleController {
 
 	@Autowired

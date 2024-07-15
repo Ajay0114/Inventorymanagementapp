@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/sales")
-@CrossOrigin(origins = "http://adcd0286e6d2844f19e74d61a092da27-779300368.ap-south-1.elb.amazonaws.com/")
+@CrossOrigin(origins = "http://a7fde1fd2043e4e49b662c93b21cf723-881100691.ap-south-1.elb.amazonaws.com/")
 public class SaleController {
 
     @Autowired

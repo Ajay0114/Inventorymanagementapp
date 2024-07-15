@@ -14,8 +14,8 @@ public class CorsConfig {
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);
-		config.addAllowedOrigin("http://a6641cda68db548f88fbd196daf144c6-1534474613.ap-south-1.elb.amazonaws.com/"); // frontendapploadbalancer
-		config.addAllowedOrigin("http://a05df81c6e26842219a1cc30bbb95ede-660146148.ap-south-1.elb.amazonaws.com:9090"); // manfacturer
+		config.addAllowedOrigin("http://a71faa344a6bb4582a419d323f9d429d-780329519.ap-south-1.elb.amazonaws.com/"); // frontendapploadbalancer
+		config.addAllowedOrigin("http://a42b35b7d12eb4da8ae0d9193153afb2-622423951.ap-south-1.elb.amazonaws.com:9090"); // manfacturer
 																														// app
 																														// load
 																														// balancer

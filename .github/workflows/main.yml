@@ -103,7 +103,7 @@ jobs:
           AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
           AWS_REGION: ap-south-1
         run: |
-          aws eks update-kubeconfig --name my-eks-cluster --region $AWS_REGION
+          aws eks update-kubeconfig --name my-ecomm-cluster --region $AWS_REGION
 
            # Apply Kubernetes deployment and service files for Manufacturer Microservice
           cd Backend-Java-Spring/Manfacturer
