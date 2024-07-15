@@ -32,7 +32,8 @@
    ```
 
 ## Deploy Services (Load Balancers)
-6. **Deploy your applications using Kubernetes service YAML files. Here's an example for a service exposing a backend application**:
+
+6.  **Deploy your applications using Kubernetes service YAML files. Here's an example for a service exposing a backend application**:
 
     ```bash
     service.yaml
@@ -52,18 +53,17 @@
     type: LoadBalancer
     ```
 
-7. **Apply the service YAML**:
+7.  **Apply the service YAML**:
 
     ```bash
     kubectl apply -f service.yaml
     ```
 
-8. **Retrieve Load Balancer DNS and Update Application Files**
-Retrieve the load balancer DNS of each application's service:
-    
-    ```bash
-    kubectl get services : Retrieve all the deployed service
-    ```
+8.  **Retrieve Load Balancer DNS and Update Application Files**
+    Retrieve the load balancer DNS of each application's service:
+        ```bash
+        kubectl get services : Retrieve all the deployed service
+        ```
 
 Update your application files (deployment.yaml, config.yaml, etc.) with the retrieved load balancer DNS.
 
