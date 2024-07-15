@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main # Adjust branch as per your setup
+      - master # Adjust branch as per your setup
 
 jobs:
   deploy:
