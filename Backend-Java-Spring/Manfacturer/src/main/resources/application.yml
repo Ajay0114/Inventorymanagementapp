@@ -4,5 +4,5 @@ Scheduler:
   cron: 0 0/2 0 * * *
 ecommerce:
   urls:
-    shopClues: http://a42afffcd88084709badfd169ec7e17e-737293209.ap-south-1.elb.amazonaws.com:8080/products #backendloadbalancers
-    shopWise: http://a01500bb5ddf1441b94d29cae0c2b3a5-92203344.ap-south-1.elb.amazonaws.com:9091/products
+    shopClues: http://a7eae39c30d7c421c9a7ba08a5be7ce0-817596773.ap-south-1.elb.amazonaws.com:8080/products #backendloadbalancers
+    shopWise: http://a38ffc5bc9ff3465aa137c68cfb02b13-1227728245.ap-south-1.elb.amazonaws.com:9091/products
