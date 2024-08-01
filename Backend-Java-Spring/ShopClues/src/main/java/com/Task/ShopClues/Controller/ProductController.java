@@ -19,7 +19,7 @@ import com.Task.ShopClues.Entity.Products;
 import com.Task.ShopClues.Repository.ShopCluesProductRepository;
 
 @RestController
-@CrossOrigin(origins = "http://a36b8665224454347a0c6b5b7feb9c2f-2005115705.ap-south-1.elb.amazonaws.com/")
+@CrossOrigin(origins = "http://ad0280d9c32714af8a4359cd3ab7539a-62402450.ap-south-1.elb.amazonaws.com/")
 @RequestMapping("/products")
 public class ProductController {
 

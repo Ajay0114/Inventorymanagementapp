@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "backendazureloadbalancers",
         "backendloadbalancers",
         "ecommerce",
         "kubeconfig",
@@ -7,6 +8,7 @@
         "mvnw",
         "mytest",
         "shopclues",
+        "shopcluesazure",
         "Shopwise"
     ]
 }
