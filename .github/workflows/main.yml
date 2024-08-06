@@ -35,22 +35,11 @@ jobs:
           cd Backend-Java-Spring/ShopClues
           ./mvnw clean package
 
-      # - name: Build Shopwise Microservice
-      #   run: |
-      #     cd Backend-Java-Spring/Shopwise
-      #     ./mvnw clean package
-
       - name: Build ShopClues Frontend Application
         run: |
           cd Frontend-Angular/ShopClues
           npm install
           npm run build
-
-      # - name: Build ShopWise Frontend Application
-      #   run: |
-      #     cd Frontend-Angular/ShopWise
-      #     npm install
-      #     npm run build
 
       - name: Build Docker Images and Push to ECR
         env:
@@ -71,20 +60,11 @@ jobs:
           docker build -t shopclues-backend .
           docker tag shopclues-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopclues-backend-latest
 
-          # ShopWise Microservice
-          # cd ../Shopwise
-          # docker build -t shopwise-backend .
-          # docker tag shopwise-backend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopwise-backend-latest
-
           # ShopClues Frontend
           cd ../../Frontend-Angular/ShopClues
           docker build -t shopclues-frontend .
           docker tag shopclues-frontend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopclues-frontend-latest
 
-          # ShopWise Frontend
-          # cd ../ShopWise
-          # docker build -t shopwise-frontend .
-          # docker tag shopwise-frontend:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopwise-frontend-latest
 
           # Login to ECR
           aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
@@ -92,9 +72,7 @@ jobs:
           # Push Docker Images
           docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:manufacturer-backend-latest
           docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopclues-backend-latest
-          # docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopwise-backend-latest
           docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopclues-frontend-latest
-          # docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/mytest:shopwise-frontend-latest
 
       - name: Deploy to EKS Cluster
         env:
@@ -103,7 +81,7 @@ jobs:
           AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
           AWS_REGION: ap-south-1
         run: |
-          aws eks update-kubeconfig --name ecomm-eks-cluster --region $AWS_REGION
+          aws eks update-kubeconfig --name eks-ecomm-cluster --region $AWS_REGION
 
            # Apply Kubernetes deployment and service files for Manufacturer Microservice
           cd Backend-Java-Spring/Manfacturer
@@ -115,17 +93,7 @@ jobs:
           kubectl apply -f shopclues-deployment.yaml
           kubectl apply -f service.yaml
 
-          # # Apply Kubernetes deployment and service files for ShopWise Microservice
-          # cd ../Shopwise
-          # kubectl apply -f shopwise-deployment.yaml
-          # kubectl apply -f service.yaml
-
           # Apply Kubernetes deployment and service files for ShopClues Frontend
           cd ../../Frontend-Angular/ShopClues
           kubectl apply -f shopclues-frontend-deployment.yaml
           kubectl apply -f service.yaml
-
-          # # Apply Kubernetes deployment and service files for ShopWise Frontend
-          # cd ../ShopWise
-          # kubectl apply -f shopwise-frontend-deployment.yaml
-          # kubectl apply -f service.yaml
