@@ -9,7 +9,7 @@ export class ProductService {
 
   private productUrl = './assets/product.json'
   private productUrl2 = './assets/prod.json'
-  private baseUrl = 'http://ac82525b4772947bca365ac085f211f9-1979432996.ap-south-1.elb.amazonaws.com:8080' //backendloadbalancer
+  private baseUrl = 'http://a8fa0986da717468d96d73d51df1b9b6-67783550.ap-south-1.elb.amazonaws.com:8080' //backendloadbalancer
 
 
   public cartAddedSubject = new Subject<boolean>();
