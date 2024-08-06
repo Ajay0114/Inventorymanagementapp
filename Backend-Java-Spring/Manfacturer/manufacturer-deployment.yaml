@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-manfacturer-app
+  name: backend-manufacturer-app
   labels:
-    app: backend-manfacturer-app
+    app: backend-manufacturer-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend-manfacturer-app
+      app: backend-manufacturer-app
   template:
     metadata:
       labels:
-        app: backend-manfacturer-app
+        app: backend-manufacturer-app
     spec:
       containers:
-        - name: backend-manfacturer-app
+        - name: backend-manufacturer-app
           image: 905418476815.dkr.ecr.ap-south-1.amazonaws.com/mytest:manufacturer-backend-latest
           ports:
             - containerPort: 9090
