@@ -68,7 +68,7 @@
        Retrieve all the deployed service
     ```
 
-Update your application files (deployment.yaml, config.yaml, etc.) with the retrieved load balancer DNS.
+Update your application files (application.yaml files, deployment.yaml, config.yaml, etc.) with the retrieved load balancer DNS.
 
 Commit Changes to GitHub
 Commit your changes to your GitHub repository:
