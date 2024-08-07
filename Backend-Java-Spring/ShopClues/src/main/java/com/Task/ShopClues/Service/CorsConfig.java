@@ -15,6 +15,7 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
         config.addAllowedOrigin("http://a126c43dfcf794072aff3a03a34a92d1-1999702036.ap-south-1.elb.amazonaws.com/"); // frontendlb
+        config.addAllowedOrigin("http://www.ecomcloudconnect.com/");
         config.addAllowedOrigin("http://a6b4318a94dec46858aed32bf5c417db-1745447210.ap-south-1.elb.amazonaws.com:9090"); // manfacturerlb
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");

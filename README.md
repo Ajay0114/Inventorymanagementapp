@@ -76,3 +76,10 @@ Commit your changes to your GitHub repository:
 git add .
 git commit -m "Updated load balancer DNS in application files"
 git push origin main
+
+//Restarting the container
+
+aws eks update-kubeconfig --name eks-ecomm-cluster --region ap-south-1
+Delete the existing aws-secrets ----- kubectl delete secrets aws-secrets
+create a new secrets using kubectl generic --from-literal
+kubectl rollout restart deployment/backend-shopclues-app
