@@ -15,8 +15,8 @@ public class WebConfig implements WebMvcConfigurer {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedOrigins("http://www.ecomcloudconnect.com",
-                                "http://a93268e588231434fa395cf451a6974e-1396132218.ap-south-1.elb.amazonaws.com",
-                                "http://ab0353c9b218a4f43be141192f39a38e-1175769183.ap-south-1.elb.amazonaws.com:9090")
+                                "http://a7c7701eaa495469aa368376ca6f0cbf-377601527.ap-south-1.elb.amazonaws.com",
+                                "http://a85e0000f934f46babf32f4c5d2d2a41-96963430.ap-south-1.elb.amazonaws.com:9090")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowedHeaders("*");
             }

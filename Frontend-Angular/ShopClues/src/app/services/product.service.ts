@@ -7,9 +7,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ProductService {
 
-  private productUrl = './assets/product.json'
-  private productUrl2 = './assets/prod.json'
-  private baseUrl = 'http://a73b24953b5ba4cb6aeb518ad5c35411-897494200.ap-south-1.elb.amazonaws.com:8080' //backendloadbalancer
+  private baseUrl = 'http://ab479196e955b416cb4fc27daba3c4ff-2097313692.ap-south-1.elb.amazonaws.com:8080' //backendloadbalancer
 
 
   public cartAddedSubject = new Subject<boolean>();
