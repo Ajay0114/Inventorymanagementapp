@@ -14,7 +14,9 @@ public class WebConfig implements WebMvcConfigurer {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://www.ecomcloudconnect.com") // Change this to your frontend domain
+                        .allowedOrigins("http://www.ecomcloudconnect.com",
+                                "http://a93268e588231434fa395cf451a6974e-1396132218.ap-south-1.elb.amazonaws.com",
+                                "http://ab0353c9b218a4f43be141192f39a38e-1175769183.ap-south-1.elb.amazonaws.com:9090")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowedHeaders("*");
             }
