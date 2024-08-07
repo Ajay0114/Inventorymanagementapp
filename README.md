@@ -83,5 +83,3 @@ aws eks update-kubeconfig --name eks-ecomm-cluster --region ap-south-1
 Delete the existing aws-secrets ----- kubectl delete secrets aws-secrets
 create a new secrets using kubectl generic --from-literal
 kubectl rollout restart deployment/backend-shopclues-app
-
-up--
