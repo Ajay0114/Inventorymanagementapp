@@ -49,10 +49,12 @@ delete(product: any) {
         })
       };
      this.productService.makeSale(salePayload ,{ responseType: 'text' }).subscribe((res: any) => {
-        if (res.includes('Sale successful')) {
+      console.log('Response:', res); // Debugging line
+        if (res.includes('Sale processed successfully')) {
          this.cartProducts = [];
+         console.log('Cart products cleared:', this.cartProducts);
          alert("Sale successful");
-            this.router.navigateByUrl("/products");
+            this.router.navigateByUrl("/");
         }
       });
     } 

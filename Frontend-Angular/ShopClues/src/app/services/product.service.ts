@@ -7,7 +7,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ProductService {
 
-  private baseUrl = 'http://ab479196e955b416cb4fc27daba3c4ff-2097313692.ap-south-1.elb.amazonaws.com:8080' //backendloadbalancer
+  private baseUrl = 'https://mfkdks9fl2.execute-api.ap-south-1.amazonaws.com/dev' //backendloadbalancer
 
 
   public cartAddedSubject = new Subject<boolean>();
@@ -16,10 +16,10 @@ export class ProductService {
 
   getAllProducts(): Observable<any[]> {
     debugger;
-    return this.http.get<any[]>(`${this.baseUrl}/products/all`);
+    return this.http.get<any[]>(`${this.baseUrl}/items`);
   }
   
   makeSale(salePayload: any, options?: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/sales/makeSale`, salePayload, options);
+    return this.http.post<any>(`${this.baseUrl}/salereq`, salePayload, options);
   }
 }

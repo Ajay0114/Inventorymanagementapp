@@ -51,7 +51,7 @@ public class ProductUpdateSchedulerService {
 			String ecommerceUrl = String.valueOf(e.getValue());
 
 			// It will Fetch all products from the e-commerce application using the URLS
-			ResponseEntity<List<ManfacturerEntity>> responseEntity = restTemplate.exchange(ecommerceUrl + "/all",
+			ResponseEntity<List<ManfacturerEntity>> responseEntity = restTemplate.exchange(ecommerceUrl + "/items",
 					HttpMethod.GET, null, new ParameterizedTypeReference<List<ManfacturerEntity>>() {
 					});
 

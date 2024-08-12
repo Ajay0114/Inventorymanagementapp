@@ -49,7 +49,7 @@ public class NewProductScheduler {
 			try {
 				// Fetch all products from the e-commerce application using the URLs
 				ResponseEntity<List<ManfacturerEntity>> responseEntity = restTemplate.exchange(
-						ecommerceUrl + "/all", HttpMethod.GET, null,
+						ecommerceUrl + "/items", HttpMethod.GET, null,
 						new ParameterizedTypeReference<List<ManfacturerEntity>>() {
 						});
 
