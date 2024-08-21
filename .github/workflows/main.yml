@@ -24,8 +24,27 @@ jobs:
           ls -la
           ls -la Backend-Java-Spring
           ls -la Frontend-Angular
+          ls -la Terraform
 
-      - name: Build Manfacturer Microservice
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_wrapper: false
+
+      - name: Initialize Terraform
+        run: |
+          cd Terraform
+          terraform init
+          terraform plan
+          terraform apply -auto-approve
+
+      - name: Get EKS Cluster Name
+        id: eks
+        run: |
+          cd Terraform
+          echo "EKS_CLUSTER_NAME=$(terraform output -raw eks_cluster_name)" >> $GITHUB_ENV
+
+      - name: Build Manufacturer Microservice
         run: |
           cd Backend-Java-Spring/Manfacturer
           ./mvnw clean package
@@ -79,10 +98,11 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
           AWS_REGION: ap-south-1
+          EKS_CLUSTER_NAME: ${{ env.EKS_CLUSTER_NAME }}
         run: |
-          aws eks update-kubeconfig --name eks-cluster --region $AWS_REGION
+          aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
 
-           # Apply Kubernetes deployment and service files for Manufacturer Microservice
+          # Apply Kubernetes deployment and service files for Manufacturer Microservice
           cd Backend-Java-Spring/Manfacturer
           kubectl apply -f manufacturer-deployment.yaml
           kubectl apply -f service.yaml

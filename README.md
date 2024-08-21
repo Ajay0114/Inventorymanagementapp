@@ -79,7 +79,8 @@ git push origin main
 
 //Restarting the container
 
-aws eks update-kubeconfig --name ecomm-eks-cluster --region ap-south-1
+aws eks update-kubeconfig --name eks-cluster --region ap-south-1
 Delete the existing aws-secrets ----- kubectl delete secrets aws-secrets
 create a new secrets using kubectl generic --from-literal
 kubectl rollout restart deployment/backend-shopclues-app
+kubectl rollout restart deployment/backend-manufacturer-app
