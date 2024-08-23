@@ -104,9 +104,9 @@ jobs:
           AWS_REGION: ap-south-1
           EKS_CLUSTER_NAME: ${{ env.EKS_CLUSTER_NAME }}
         run: |
-          aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REG`ION
+          aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
 
-            # Create Kubernetes secret
+          # Create Kubernetes secret
           kubectl create secret generic aws-secrets \
             --from-literal=AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
             --from-literal=AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
