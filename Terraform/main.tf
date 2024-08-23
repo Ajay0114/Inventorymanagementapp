@@ -1,19 +1,16 @@
 # Set the required providers
 provider "aws" {
-  region = "ap-south-1" # Replace with your desired region
+  region = "ap-south-1"
 }
-
-# Data source to fetch the existing VPC
 data "aws_vpc" "existing_vpc" {
-  id = "vpc-0759b05e613524519" # Replace with your VPC ID
+  id = "vpc-0759b05e613524519"
 }
 
-# Data source to fetch the existing Security Group
 data "aws_security_group" "existing_sg" {
-  id = "sg-0eebf0ae1efa0d4a3" # Replace with your Security Group ID
+  id = "sg-0eebf0ae1efa0d4a3"
 }
 
-# Data source to fetch the subnets associated with the existing VPC
+
 data "aws_subnets" "existing_subnets" {
   filter {
     name   = "vpc-id"
@@ -47,7 +44,6 @@ resource "aws_iam_role_policy_attachment" "eks_vpc_resource_controller_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
 }
 
-# Create the EKS Cluster
 resource "aws_eks_cluster" "eks_cluster" {
   name     = "my-eks-cluster"
   role_arn = aws_iam_role.eks_cluster_role.arn
@@ -63,7 +59,6 @@ resource "aws_eks_cluster" "eks_cluster" {
   ]
 }
 
-# IAM role for EKS worker nodes
 resource "aws_iam_role" "eks_node_role" {
   name = "eks-node-group-role"
 
@@ -79,7 +74,6 @@ resource "aws_iam_role" "eks_node_role" {
   })
 }
 
-# IAM policy attachment for EKS worker nodes
 resource "aws_iam_role_policy_attachment" "eks_worker_node_policy" {
   role       = aws_iam_role.eks_node_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
@@ -95,7 +89,6 @@ resource "aws_iam_role_policy_attachment" "eks_registry_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
 
-# Create the EKS Node Group
 resource "aws_eks_node_group" "eks_node_group" {
   cluster_name    = aws_eks_cluster.eks_cluster.name
   node_group_name = "my-eks-node-group"
