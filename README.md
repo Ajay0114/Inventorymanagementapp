@@ -77,7 +77,7 @@ git add .
 git commit -m "Updated load balancer DNS in application files"
 git push origin main
 
-//Restarting the container
+Restarting the container
 
 aws eks update-kubeconfig --name my-eks-cluster --region ap-south-1
 Delete the existing aws-secrets ----- kubectl delete secrets aws-secrets
