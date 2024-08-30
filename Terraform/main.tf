@@ -1,4 +1,3 @@
-# Set the required providers
 provider "aws" {
   region = "ap-south-1"
 }
@@ -17,6 +16,7 @@ data "aws_subnets" "existing_subnets" {
     values = [data.aws_vpc.existing_vpc.id]
   }
 }
+
 # IAM role for EKS cluster
 resource "aws_iam_role" "eks_cluster_role" {
   name = "eks-cluster-role-2"

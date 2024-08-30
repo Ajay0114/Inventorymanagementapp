@@ -7,8 +7,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ProductService {
 
-  private baseUrl = 'https://mfkdks9fl2.execute-api.ap-south-1.amazonaws.com/dev' //backendloadbalancer
-
+  private baseUrl = 'https://mfkdks9fl2.execute-api.ap-south-1.amazonaws.com/dev' //Api gateway built in amazon
 
   public cartAddedSubject = new Subject<boolean>();
 
